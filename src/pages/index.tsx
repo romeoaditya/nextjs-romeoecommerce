@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import {Geist, Geist_Mono} from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import {useSession} from "next-auth/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +14,6 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
-  const {data} = useSession();
-
   return (
     <>
       <Head>
