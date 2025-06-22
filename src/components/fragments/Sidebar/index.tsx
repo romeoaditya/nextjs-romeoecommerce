@@ -1,5 +1,5 @@
 import {useRouter} from "next/router";
-import styles from "./Sidebar.module.scss";
+import styles from "./SIdebar.module.scss";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import {signOut} from "next-auth/react";
