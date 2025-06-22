@@ -5,6 +5,7 @@ import {FormEvent, useState} from "react";
 import {signIn} from "next-auth/react";
 import Input from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
+import AuthLayout from "@/components/layouts/Navbar/AuthLayout";
 
 const LoginView = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,9 +42,11 @@ const LoginView = () => {
   };
 
   return (
-    <div className={styles.login}>
-      <h1 className={styles.login__title}>Login</h1>
-      {error && <p className={styles.login__error}>{error}</p>}
+    <AuthLayout
+      title="Login"
+      link="/auth/register"
+      linkText="Don't have an account? Sign up"
+    >
       <div className={styles.login__form}>
         <form onSubmit={handleSubmit}>
           <Input label="Email" name="email" type="email" />
@@ -51,18 +54,18 @@ const LoginView = () => {
           <Button
             type="submit"
             variant="primary"
-            className={styles.login__form__button}
+            className={styles.login__button}
           >
             {isLoading ? "Loading..." : "Login"}
           </Button>
         </form>
-        <hr className={styles.login__form__divider} />
-        <div className={styles.login__form__other}>
+        <hr className={styles.login__divider} />
+        <div className={styles.login__other}>
           <Button
             type="button"
             variant="primary"
             onClick={() => signIn("google", {callbackUrl, redirect: false})}
-            className={styles.login__form__other__button}
+            className={styles.login__other__button}
           >
             {" "}
             <i className="bx bxl-google" />
@@ -70,10 +73,7 @@ const LoginView = () => {
           </Button>
         </div>
       </div>
-      <p className={styles.login__link}>
-        Don't have an account? <Link href="/auth/register">Sign up here</Link>{" "}
-      </p>
-    </div>
+    </AuthLayout>
   );
 };
 
