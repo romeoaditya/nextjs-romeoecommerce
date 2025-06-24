@@ -53,8 +53,8 @@ export async function addData(
   callback: Function
 ) {
   await addDoc(collection(firestore, collectionName), data)
-    .then(() => {
-      callback(true);
+    .then((res) => {
+      callback(true, res);
     })
     .catch((error) => {
       callback(false);

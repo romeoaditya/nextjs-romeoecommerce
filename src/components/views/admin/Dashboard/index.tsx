@@ -4,7 +4,7 @@ const DashboardAdminView = () => {
   return (
     <AdminLayout>
       <div>
-        <h1>Admin Page</h1>
+        <h1>Admin Page View</h1>
       </div>
     </AdminLayout>
   );
